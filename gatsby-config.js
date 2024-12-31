@@ -157,7 +157,20 @@ module.exports = {
         ],
       },
     },
-
+    {
+      resolve: `gatsby-plugin-posthog`,
+      options: {
+        // Specify the API key for your Posthog Project (required)
+        apiKey: "phc_41ZsUKuOh9odm6GDZcLzPfixBQut7amfmHC6zze1rVy",
+        // Specify the app host if self-hosting (optional, default: https://app.posthog.com)
+        apiHost: "https://eu.i.posthog.com",
+        // Puts tracking script in the head instead of the body (optional, default: true)
+        head: true,
+        // Enable posthog analytics tracking during development (optional, default: false)
+        isEnabledDevMode: true
+        // Pass custom variables to posthog.init() (optional)
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
