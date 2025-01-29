@@ -37,6 +37,8 @@ const IndexPage = ({
       </p>
       {LocalTimezone}
 
+      <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="si" data-description="Support me on Buy me a coffee!" data-message="Thanks for using 6 Nations Calendar. If you've found it useful, why not buy Si a beer?" data-color="#40DCA5" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+
       <table>
         <thead>
           <tr>
