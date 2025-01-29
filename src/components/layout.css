@@ -587,6 +587,7 @@ a.ics {
   padding: 1rem;
   display: block;
   transition: all 0.5s ease;
+  border-radius: 50px;
 }
 a.ics:active,
 a.ics:focus {
