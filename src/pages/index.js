@@ -18,12 +18,13 @@ const IndexPage = ({
   return (
     <Layout>
 
-      <SEO title="All Events" />
-      <h1>All Events</h1>
+      <SEO title="All games" />
 
   		<p>
-        <span role="img" aria-label="Spiral calendar">🗓</span> 
-        <a href="webcal://sportstimes.netlify.app/events.ics" className="ics">Subscribe to all event times in iOS, MacOS and Office</a>
+        <a href="webcal://6nationscalendar.com/events.ics" className="ics">
+          <span role="img" aria-label="Spiral calendar">🗓</span> 
+          Subscribe to all event times in iOS, MacOS and Office
+        </a>
         <small
           style={{
             display: `block`,
@@ -31,12 +32,7 @@ const IndexPage = ({
         >
           or 
           {` `}
-          <a href="https://support.google.com/calendar/answer/37100?hl=en"
-            style={{
-              textDecoration: `underline`,
-              background: `none`,
-              color: `rgba(255,255,255,0.8)`
-            }}>Google Calendar</a>
+          <a href="https://support.google.com/calendar/answer/37100?hl=en">Google Calendar</a>
         </small>      
       </p>
       {LocalTimezone}
@@ -47,7 +43,7 @@ const IndexPage = ({
             <th>Summary</th>
             <th>When</th>
             <th class="location">Where</th>
-            <th class="description">What</th>
+            <th class="description" style={{display:`none`}}>What</th>
           </tr>
         </thead>
         <tbody>
@@ -58,11 +54,11 @@ const IndexPage = ({
         <span role="img" aria-label="Download">⬇️</span>
         Export as 
         {` `}
-        <a href="/events.ics" className="ics" download="download">ICS</a>,
+        <a href="/events.ics" download="download">ICS</a>,
         {` `}
-        <a href="/feed.xml" className="rss">RSS feed</a>
+        <a href="/feed.xml">RSS feed</a>
         {` and `}
-        <a href="/events.csv" className="csv" download="download">CSV file</a>
+        <a href="/events.csv" download="download">CSV file</a>
       </p>
      </Layout>
   )
@@ -71,7 +67,7 @@ const IndexPage = ({
 export default IndexPage
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
           id

@@ -10,7 +10,7 @@ const EventRow = ({ post }) => (
         <Link className="url" to={post.frontmatter.path}>{post.frontmatter.title}</Link>
       </td>
       <td>
-        {moment(post.frontmatter.date).format("ddd DD MMM HH:mm")}
+        {moment(post.frontmatter.date).format("ddd DD MMM \'YY HH:mm")}
         <time className="dtstart">
           {moment(post.frontmatter.date).format("YYYY-MM-DDTHH:mm:ssZ")}
         </time>
@@ -21,7 +21,7 @@ const EventRow = ({ post }) => (
       <td className="location">
         {post.frontmatter.locationName}
       </td>
-      <td className="description">
+      <td className="description" style={{display:`none`}}>
         {post.excerpt}
       </td>
   </tr>

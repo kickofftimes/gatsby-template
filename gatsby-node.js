@@ -127,8 +127,17 @@ exports.onPostBuild = async ({ graphql }) => {
   }
 
   result.data.event.edges.forEach(({ node }) => {
+    let start = moment(node.frontmatter.date)
+    let startDate = [
+      start.year(),
+      (start.month()+1),
+      start.date(),
+      start.hour(),
+      start.minutes()
+    ];
+    
     let event = {
-      start: moment(node.frontmatter.date).format('YYYY-M-D-H-m').split("-"),
+      start: startDate,
       title: node.frontmatter.title,
       description: node.excerpt,
       location: node.frontmatter.locationName,
@@ -136,9 +145,18 @@ exports.onPostBuild = async ({ graphql }) => {
       status: 'CONFIRMED',
     }
     if(node.frontmatter.endDate) {
-      event.end = moment(node.frontmatter.endDate).format('YYYY-M-D-H-m').split("-")
+      let end = moment(node.frontmatter.endDate)
+      let endDate = [
+        end.year(),
+        (end.month()+1),
+        end.date(),
+        end.hour(),
+        end.minutes()
+      ];
+  
+      event.end = endDate
     } else {
-      event.duration = { hours: 1, minutes: 0 }
+      event.duration = { hours: 2, minutes: 0 }
     }
     events.push(event)
   })

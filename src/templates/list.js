@@ -17,7 +17,7 @@ const IndexPage = ({
   const Events = edges
     .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
     .map(edge => <EventRow key={edge.node.id} post={edge.node} />)
-  const listHeader = `${tag} events`
+  const listHeader = `${tag} games`
   
   return (
     <Layout>
@@ -26,7 +26,7 @@ const IndexPage = ({
 
       <p>
         <span role="img" aria-label="Spiral calendar">🗓</span> 
-        <a href="webcal://rugbyworldcuptimes.com/events.ics" className="ics">Subscribe to ALL match times in your iOS, MacOS and Office calendar</a> 
+        <a href="webcal://6nationscalendar.com/events.ics" className="ics">Subscribe to ALL match times in your iOS, MacOS and Office calendar</a> 
         <small
           style={{
             display: `block`,
@@ -34,12 +34,7 @@ const IndexPage = ({
         >
           or 
           {` `}
-          <a href="https://support.google.com/calendar/answer/37100?hl=en"
-            style={{
-              textDecoration: `underline`,
-              background: `none`,
-              color: `rgba(255,255,255,0.8)`
-            }}>Google Calendar</a>
+          <a href="https://support.google.com/calendar/answer/37100?hl=en">Google Calendar</a>
         </small>
       </p>
 
@@ -51,7 +46,7 @@ const IndexPage = ({
             <th>Summary</th>
             <th>When</th>
             <th class="location">Where</th>
-            <th class="description">What</th>
+            <th class="description" style={{display:`none`}}>What</th>
           </tr>
         </thead>
         <tbody>
@@ -59,7 +54,7 @@ const IndexPage = ({
         </tbody>
       </table>
       <p>
-        <Link to="/">All matches</Link>
+        <Link to="/">All games</Link>
       </p>
      </Layout>
   )
@@ -69,7 +64,7 @@ export default IndexPage
 export const pageQuery = graphql`
   query($tag: String) {
     allMarkdownRemark(
-      sort: { order: ASC, fields: [frontmatter___date] }
+      sort: { order: DESC, fields: [frontmatter___date] }
       filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
       totalCount

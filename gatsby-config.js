@@ -1,8 +1,8 @@
 module.exports = {
     siteMetadata: {
-      title: `The Sports Times 🗞️`,
-      description: `Sport event times available in open formats including RSS, ICS and JSON`,
-      siteUrl: `https://sportstimes.netlify.app`,
+      title: `6 Nations Calendar 🏉`,
+      description: `6 Nations kick-off times available in open formats including RSS, ICS and JSON`,
+      siteUrl: `https://6nationscalendar.com`,
       author: `@si`,
     },
     plugins: [
@@ -22,7 +22,7 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#333333`,
+        background_color: `#006600`,
         theme_color: `#FFCCFF`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
@@ -32,7 +32,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          'Kelly Slab',
+          'Michroma',
           //`source sans pro\:300,400,400i,700` // you can also specify font weights and styles
         ],
         display: 'swap'
@@ -157,26 +157,20 @@ module.exports = {
         ],
       },
     },
-
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-posthog`,
       options: {
-        trackingId: "UA-91583-61",
-        // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: false,
-        // Setting this parameter is optional
-        anonymize: true,
-        // Setting this parameter is also optional
-        respectDNT: true,
-        // Delays sending pageview hits on route update (in milliseconds)
-        pageTransitionDelay: 0,
-        sampleRate: 5,
-        siteSpeedSampleRate: 10,
-        cookieDomain: "rugbyworldcuptimes.com",
+        // Specify the API key for your Posthog Project (required)
+        apiKey: "phc_41ZsUKuOh9odm6GDZcLzPfixBQut7amfmHC6zze1rVy",
+        // Specify the app host if self-hosting (optional, default: https://app.posthog.com)
+        apiHost: "https://eu.i.posthog.com",
+        // Puts tracking script in the head instead of the body (optional, default: true)
+        head: true,
+        // Enable posthog analytics tracking during development (optional, default: false)
+        isEnabledDevMode: true
+        // Pass custom variables to posthog.init() (optional)
       },
     },
-
-
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

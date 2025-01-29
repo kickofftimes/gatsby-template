@@ -39,12 +39,12 @@ export default function Template({ data }) {
           tags ? 
           tags.map(tag => (
             <li key={tag.fieldValue}>
-            <Link to={`/${kebabCase(tag)}/`}>{tag} events</Link>
+            <Link to={`/${kebabCase(tag)}/`}>{tag} games</Link>
           </li>
           )) : ''
         }
         <li><Link to="/"><span role="img" aria-label="Spiral calendar">📅</span>
-          All events</Link></li>
+          All games</Link></li>
         </ul>
 
       </div>
