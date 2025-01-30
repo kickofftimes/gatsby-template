@@ -53,6 +53,10 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: `/images/6-nations-calendar-social.png`,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
