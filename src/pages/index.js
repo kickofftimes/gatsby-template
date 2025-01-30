@@ -20,11 +20,11 @@ const IndexPage = ({
     <Layout>
 
       <SEO title="2025 games" />
-      <h2>2025 games</h2>
+      <h2>Upcoming 2025 games</h2>
   		<p>
         <a href="webcal://6nationscalendar.com/events.ics" className="ics">
           <span role="img" aria-label="Spiral calendar">🗓</span> 
-          Subscribe to all event times in iOS, MacOS and Office
+          Subscribe to ALL event times in iOS, MacOS and Office
         </a>
         <small
           style={{
