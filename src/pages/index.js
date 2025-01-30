@@ -11,15 +11,16 @@ const IndexPage = ({
     allMarkdownRemark: { edges },
   },
 }) => {
+  const currentDate = new Date();
   const Events = edges
-    .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
+    .filter(edge => new Date(edge.node.frontmatter.date) >= currentDate)
     .map(edge => <EventRow key={edge.node.id} post={edge.node} />)
 
   return (
     <Layout>
 
-      <SEO title="All games" />
-
+      <SEO title="2025 games" />
+      <h2>2025 games</h2>
   		<p>
         <a href="webcal://6nationscalendar.com/events.ics" className="ics">
           <span role="img" aria-label="Spiral calendar">🗓</span> 
@@ -69,7 +70,7 @@ const IndexPage = ({
 export default IndexPage
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___date] }) {
       edges {
         node {
           id
